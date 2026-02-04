@@ -1,4 +1,4 @@
-$csvfilePath = "C:\Users\Administrator.ZEROCORP\Documents\mailboxpermissions.csv"
+$csvfilePath = "\\WIN-2019-EX-MB.zerocorp.local\Temp\mailboxpermissions.csv"
 $filePath = Read-Host -Prompt "Please enter the mailbox csv file path"
 Write-Host "You entered: $filePath"
 
