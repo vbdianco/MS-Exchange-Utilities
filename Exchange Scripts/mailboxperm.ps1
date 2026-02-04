@@ -14,8 +14,8 @@ if (Test-Path $filePath){
 
 if (Get-Command -Name Get-ExchangeServer -ErrorAction SilentlyContinue){	
 	foreach ($mailbox in $mailboxes){ 
-		$dataFullAccess = Get-MailboxPermission -Identity $mailbox.mailbox -ResultSize Unlimited | ?{($_.IsInherited -eq $false) -and ($_.User -ne "NT AUTHORITY\SELF") -and ($_.AccessRights -like "FullAccess")} #| select Identity, User, AccessRights
-		$dataSendAs = Get-ADPermission -Identity $mailbox.mailbox | ? { $_.ExtendedRights -like "*send*" -and -not ($_.User -match "NT AUTHORITY") -and ($_.IsInherited -eq $false)} #| select Identity, User, ExtendedRights
+		$dataFullAccess = Get-MailboxPermission -Identity $mailbox.mailbox -ResultSize Unlimited | Where-Object {($_.IsInherited -eq $false) -and ($_.User -ne "NT AUTHORITY\SELF") -and ($_.AccessRights -like "FullAccess")} #| select Identity, User, AccessRights
+		$dataSendAs = Get-ADPermission -Identity $mailbox.mailbox | Where-Object { $_.ExtendedRights -like "*send*" -and -not ($_.User -match "NT AUTHORITY") -and ($_.IsInherited -eq $false)} #| select Identity, User, ExtendedRights
 		$dataSendOnBehalf = Get-Mailbox -Identity $mailbox.mailbox -filter('RecipientTypeDetails -eq "UserMailbox"') #| select-object Identity, GrantSendOnBehalfTo
 		
 		New-Object -TypeName PSObject -Property @{
@@ -38,8 +38,8 @@ if (Get-Command -Name Get-ExchangeServer -ErrorAction SilentlyContinue){
 			Import-PSSession $Session -DisableNameChecking
 
 			foreach ($mailbox in $mailboxes){ 
-				$dataFullAccess = Get-MailboxPermission -Identity $mailbox.mailbox -ResultSize Unlimited | ?{($_.IsInherited -eq $false) -and ($_.User -ne "NT AUTHORITY\SELF") -and ($_.AccessRights -like "FullAccess")} #| select Identity, User, AccessRights
-				$dataSendAs = Get-ADPermission -Identity $mailbox.mailbox | ? { $_.ExtendedRights -like "*send*" -and -not ($_.User -match "NT AUTHORITY") -and ($_.IsInherited -eq $false)} #| select Identity, User, ExtendedRights
+				$dataFullAccess = Get-MailboxPermission -Identity $mailbox.mailbox -ResultSize Unlimited | Where-Object {($_.IsInherited -eq $false) -and ($_.User -ne "NT AUTHORITY\SELF") -and ($_.AccessRights -like "FullAccess")} #| select Identity, User, AccessRights
+				$dataSendAs = Get-ADPermission -Identity $mailbox.mailbox | Where-Object { $_.ExtendedRights -like "*send*" -and -not ($_.User -match "NT AUTHORITY") -and ($_.IsInherited -eq $false)} #| select Identity, User, ExtendedRights
 				$dataSendOnBehalf = Get-Mailbox -Identity $mailbox.mailbox -filter('RecipientTypeDetails -eq "UserMailbox"') #| select-object Identity, GrantSendOnBehalfTo
 				
 				New-Object -TypeName PSObject -Property @{
