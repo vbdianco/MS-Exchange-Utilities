@@ -1,3 +1,9 @@
+Write-Host "#####################################################################"
+Write-Host "                                                                     "
+Write-Host "   This will extract list of Email Addresses for migrating to EXO"
+Write-Host "                                                         "
+Write-Host "#####################################################################"
+Write-Host "                                                         "
 
 $resultFilePath = "Shared Folder Path" 
 $filePath = Read-Host -Prompt "Please enter the Mailbox csv file path"

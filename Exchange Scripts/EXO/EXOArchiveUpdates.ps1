@@ -1,3 +1,11 @@
+Write-Host "############################################################"
+Write-Host "                                                         "
+Write-Host "This will enable Archiving an update Retention Policy "
+Write-Host "              on list of mailboxes in EXO                "
+Write-Host "                                                         "
+Write-Host "############################################################"
+Write-Host "                                                         "
+
 $filePath = Read-Host -Prompt "Please enter the Mailbox csv file path"
 Write-Host "You entered: $filePath"
 

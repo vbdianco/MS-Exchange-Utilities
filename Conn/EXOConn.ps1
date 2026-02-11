@@ -1,3 +1,10 @@
+Write-Host "#########################################################"
+Write-Host "                                                         "
+Write-Host "            Connect to Exchange Online                   "
+Write-Host "                                                         "
+Write-Host "#########################################################"
+Write-Host "                                                         "
+
 if(-not(Get-Module ExchangeOnlineManagement -ListAvailable)){
     Write-Host "Exchange Online PowerShell module is not installed."
     Write-Host "Installing required module..."

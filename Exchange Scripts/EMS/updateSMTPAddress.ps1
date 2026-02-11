@@ -1,3 +1,11 @@
+Write-Host "####################################################################"
+Write-Host "                                                         "
+Write-Host "This will remove smtp address except the Primary SMTP Address"
+Write-Host "     and add new SMTP Address for migrating to Exchange Online.     "
+Write-Host "                                                         "
+Write-Host "####################################################################"
+Write-Host "                                                         "
+
 $emails = @('@okdmnl.mail.onmicrosoft.com', '@okdmnl.onmicrosoft.com')
 $filePath = Read-Host -Prompt "Please enter the Mailbox csv file path"
 Write-Host "You entered: $filePath"

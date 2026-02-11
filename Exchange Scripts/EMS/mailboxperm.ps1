@@ -1,4 +1,11 @@
-$csvfilePath = "\\WIN-2019-EX-MB.zerocorp.local\Temp\mailboxpermissions.csv"
+Write-Host "############################################################"
+Write-Host "                                                         "
+Write-Host "This script will list of users with permissions to a mailbox"
+Write-Host "                                                         "
+Write-Host "############################################################"
+Write-Host "                                                         "
+
+$csvfilePath = "<Shared Folder Path>mailboxpermissions.csv"
 $filePath = Read-Host -Prompt "Please enter the mailbox csv file path"
 Write-Host "You entered: $filePath"
 

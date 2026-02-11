@@ -1,3 +1,10 @@
+Write-Host "#########################################################"
+Write-Host "                                                         "
+Write-Host "    This will Check if a set of mailbox exists in EXO."
+Write-Host "                                                         "
+Write-Host "#########################################################"
+Write-Host "                                                         "
+
 $filePath = Read-Host -Prompt "Please enter the Mailbox csv file path"
 Write-Host "You entered: $filePath"
 
